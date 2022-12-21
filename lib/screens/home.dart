@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_application/images/images.dart';
+import 'package:ticket_application/styling/app_styles.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -7,15 +8,35 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFeeedf2),
+      backgroundColor: Styles.bgColor,
       body: ListView(
         children: [
           Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
+                const SizedBox(
+                  height: 40,
+                ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text('Good Morning'),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Good Morning',
+                          style: Styles.headLineStyle2,
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'Book Tickets',
+                          style: Styles.headLineStyle,
+                        ),
+                      ],
+                    ),
                     Container(
                       width: 50,
                       height: 50,
@@ -25,7 +46,8 @@ class Home extends StatelessWidget {
                         ),
                         image: DecorationImage(
                           // fit: BoxFit.fitHeight,
-                            image: AssetImage(ImagePng.plane)),
+                          image: AssetImage(ImagePng.plane),
+                        ),
                       ),
                     ),
                   ],
