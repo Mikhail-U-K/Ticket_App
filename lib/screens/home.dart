@@ -52,6 +52,34 @@ class Home extends StatelessWidget {
                     ),
                   ],
                 ),
+                const SizedBox(
+                  height: 40,
+                ),
+                Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                  ),
+                  child: Row(
+                    children: const [
+                      Icon(
+                        Icons.search,
+                        color: Color(0xFFBFC205),
+                      ),
+                      Expanded(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                            labelText: 'Search',
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
