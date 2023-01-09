@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:ticket_application/images/images.dart';
 import 'package:ticket_application/styling/app_layout.dart';
 import 'package:ticket_application/styling/app_styles.dart';
 
 class HotelCard extends StatelessWidget {
-  const HotelCard({super.key});
+  final Map<String, dynamic> hotel;
+  const HotelCard({super.key, required this.hotel});
 
   @override
   Widget build(BuildContext context) {
     final size = AppLayOut.getSize(context);
     return Container(
       width: size.width * 0.65,
-      height: 350,
+      height: AppLayOut.getHeight(350, context),
       margin: const EdgeInsets.only(top: 5, right: 17),
       padding: const EdgeInsets.symmetric(
         horizontal: 15,
@@ -25,13 +25,13 @@ class HotelCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 180,
+            height: AppLayOut.getHeight(180, context),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              image: const DecorationImage(
+              image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage(
-                  ImagePng.hotelOne,
+                  hotel['image'],
                 ),
               ),
             ),
@@ -40,7 +40,7 @@ class HotelCard extends StatelessWidget {
             height: 10,
           ),
           Text(
-            'Open Space',
+            hotel['place'],
             style: Styles.headLineStyle2.copyWith(
               color: Styles.kakiColor,
             ),
@@ -49,7 +49,7 @@ class HotelCard extends StatelessWidget {
             height: 5,
           ),
           Text(
-            'London',
+            hotel['destination'],
             style: Styles.headLineStyle3.copyWith(
               color: Colors.white,
             ),
@@ -57,8 +57,8 @@ class HotelCard extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-           Text(
-            '\$40/night',
+          Text(
+            '${hotel['price']}/night',
             style: Styles.headLineStyle.copyWith(
               color: Styles.kakiColor,
             ),

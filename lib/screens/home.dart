@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ticket_application/app_hotel_list.dart';
 import 'package:ticket_application/images/images.dart';
 import 'package:ticket_application/screens/widgets/hotel_widget.dart';
 import 'package:ticket_application/screens/widgets/ticket.dart';
+import 'package:ticket_application/screens/widgets/utils.dart';
 import 'package:ticket_application/styling/app_styles.dart';
 
 class Home extends StatelessWidget {
@@ -85,18 +87,9 @@ class Home extends StatelessWidget {
                 const SizedBox(
                   height: 40,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Upcoming Flights',
-                      style: Styles.headLineStyle3,
-                    ),
-                    Text(
-                      'View All',
-                      style: Styles.headLineStyle4,
-                    ),
-                  ],
+                const FlightTextWidget(
+                  bigText: 'Upcomming Flight',
+                  smallText: 'View All',
                 ),
               ],
             ),
@@ -108,36 +101,25 @@ class Home extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(left: 20),
             child: Row(
-              children: [
-                const TicketWidget(),
-                const TicketWidget(),
-              ],
+              children: tickets
+                  .map(
+                    (ticket) => TicketWidget(ticket: ticket),
+                  )
+                  .toList(),
             ),
           ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Hotels',
-                  style: Styles.headLineStyle3,
-                ),
-                Text(
-                  'View All',
-                  style: Styles.headLineStyle4,
-                ),
-              ],
+            child: const FlightTextWidget(
+              bigText: 'Hotels',
+              smallText: 'View All',
             ),
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: [
-                HotelCard(),
-                HotelCard(),
-                HotelCard(),
-              ],
+              children:
+                  hotelsList.map((hotel) => HotelCard(hotel: hotel)).toList(),
             ),
           ),
         ],

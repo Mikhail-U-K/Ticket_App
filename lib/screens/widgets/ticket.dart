@@ -5,14 +5,15 @@ import 'package:ticket_application/styling/app_styles.dart';
 import 'dart:math' as math;
 
 class TicketWidget extends StatelessWidget {
-  const TicketWidget({super.key});
+  final Map<String, dynamic> ticket;
+  const TicketWidget({super.key, required this.ticket});
 
   @override
   Widget build(BuildContext context) {
     final size = AppLayOut.getSize(context);
     return SizedBox(
       width: size.width * 0.85,
-      height: 200,
+      height: AppLayOut.getHeight(200, context),
       child: Container(
         child: Column(
           children: [
@@ -33,7 +34,7 @@ class TicketWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'NYC',
+                        ticket['from']['code'],
                         style:
                             Styles.headLineStyle3.copyWith(color: Colors.white),
                       ),
@@ -76,7 +77,7 @@ class TicketWidget extends StatelessWidget {
                       const RoundWidget(),
                       Expanded(child: Container()),
                       Text(
-                        'LDN',
+                        ticket['to']['code'],
                         style:
                             Styles.headLineStyle3.copyWith(color: Colors.white),
                       ),
@@ -86,17 +87,17 @@ class TicketWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'New York',
+                        ticket['from']['name'],
                         style:
                             Styles.headLineStyle4.copyWith(color: Colors.white),
                       ),
                       Text(
-                        '8H 30M',
+                        ticket['flying time'],
                         style:
                             Styles.headLineStyle4.copyWith(color: Colors.white),
                       ),
                       Text(
-                        'London',
+                        ticket['to']['name'],
                         style:
                             Styles.headLineStyle4.copyWith(color: Colors.white),
                       ),
@@ -186,7 +187,7 @@ class TicketWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '1 May',
+                        ticket['date'],
                         style:
                             Styles.headLineStyle3.copyWith(color: Colors.white),
                       ),
@@ -201,7 +202,7 @@ class TicketWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        '08:00 AM',
+                        ticket['depature time'],
                         style:
                             Styles.headLineStyle3.copyWith(color: Colors.white),
                       ),
@@ -216,7 +217,7 @@ class TicketWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        '23',
+                        ticket['number'].toString(),
                         style:
                             Styles.headLineStyle3.copyWith(color: Colors.white),
                       ),
