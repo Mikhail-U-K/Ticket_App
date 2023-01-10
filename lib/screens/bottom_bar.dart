@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_application/screens/home.dart';
+import 'package:ticket_application/screens/profile.dart';
 import 'package:ticket_application/screens/search.dart';
+import 'package:ticket_application/screens/ticket_page.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({super.key});
@@ -14,8 +16,8 @@ class _BottomBarState extends State<BottomBar> {
   final List<Widget> _pages = <Widget>[
     const Home(),
     const SearchSrceen(),
-    const Text('Ticket'),
-    const Text('Person'),
+    const TicketPage(),
+    const Profile(),
   ];
 
   void _setPage(int index) {

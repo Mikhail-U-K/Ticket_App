@@ -9,7 +9,6 @@ class SearchSrceen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = AppLayOut.getSize(context);
     return Scaffold(
       backgroundColor: Styles.bgColor,
       body: ListView(
@@ -28,49 +27,8 @@ class SearchSrceen extends StatelessWidget {
           SizedBox(
             height: AppLayOut.getHeight(20, context),
           ),
-          Container(
-            padding: const EdgeInsets.all(3.5),
-            decoration: BoxDecoration(
-                color: Colors.white30,
-                borderRadius:
-                    BorderRadius.circular(AppLayOut.getHeight(50, context))),
-            child: Row(
-              children: [
-                Container(
-                  padding: EdgeInsets.symmetric(
-                      vertical: AppLayOut.getHeight(7, context)),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.horizontal(
-                      left: Radius.circular(AppLayOut.getHeight(50, context)),
-                    ),
-                  ),
-                  width: size.width * 0.44,
-                  child: Text(
-                    'Airline Tickets',
-                    style: Styles.headLineStyle3.copyWith(fontSize: 15),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                      vertical: AppLayOut.getHeight(7, context)),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: Colors.transparent,
-                    borderRadius: BorderRadius.horizontal(
-                      right: Radius.circular(AppLayOut.getHeight(50, context)),
-                    ),
-                  ),
-                  width: size.width * 0.44,
-                  child: Text(
-                    'Hotels',
-                    style: Styles.headLineStyle3.copyWith(fontSize: 15),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          const RoundedTwoTextContainer(
+              leftText: 'Airline Tickets', rightText: 'Hotels'),
           SizedBox(
             height: AppLayOut.getHeight(20, context),
           ),
@@ -158,6 +116,7 @@ class ThreeRoundedContainers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: const [
         LongContainerWithPicture(),
@@ -223,30 +182,94 @@ class TwoRoundContainers extends StatelessWidget {
     final size = AppLayOut.getSize(context);
     return Column(
       children: [
+        Stack(
+          children: [
+            Container(
+              width: size.width * 0.44,
+              height: AppLayOut.getHeight(160, context),
+              decoration: BoxDecoration(
+                color: const Color(0xFF3AB8B8),
+                borderRadius:
+                    BorderRadius.circular(AppLayOut.getHeight(15, context)),
+              ),
+              padding: EdgeInsets.symmetric(
+                  vertical: AppLayOut.getHeight(15, context),
+                  horizontal: AppLayOut.getHeight(15, context)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Discount\nfor survey',
+                    style: Styles.headLineStyle3.copyWith(color: Colors.white),
+                  ),
+                  SizedBox(
+                    height: AppLayOut.getHeight(10, context),
+                  ),
+                  Text(
+                    'Take the survey about our services and get a discount',
+                    style: Styles.headLineStyle3
+                        .copyWith(color: Colors.white, fontSize: 17),
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              right: -45,
+              top: -40,
+              child: Container(
+                padding: EdgeInsets.all(AppLayOut.getHeight(30, context)),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(width: 18, color: Color(0xFF189999)),
+                  color: Colors.transparent,
+                ),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: AppLayOut.getHeight(15, context),
+        ),
         Container(
           width: size.width * 0.44,
+          padding: EdgeInsets.symmetric(
+            vertical: AppLayOut.getHeight(15, context),
+            horizontal: AppLayOut.getHeight(15, context),
+          ),
           height: AppLayOut.getHeight(174, context),
           decoration: BoxDecoration(
-            color: const Color(0xFF3AB8B8),
             borderRadius:
                 BorderRadius.circular(AppLayOut.getHeight(15, context)),
+            color: Colors.orange.shade900,
           ),
-          padding: EdgeInsets.symmetric(
-              vertical: AppLayOut.getHeight(15, context),
-              horizontal: AppLayOut.getHeight(15, context)),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Discount\nfor survey',
-                style: Styles.headLineStyle3.copyWith(color: Colors.white),
+                'Take love!',
+                style: Styles.headLineStyle2
+                    .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: AppLayOut.getHeight(10, context),
+                height: AppLayOut.getHeight(5, context),
               ),
-              Text(
-                'Discount\nfor survey',
-                style: Styles.headLineStyle3.copyWith(color: Colors.white),
+              RichText(
+                text: const TextSpan(
+                  children: [
+                    TextSpan(
+                      text: '😍',
+                      style: TextStyle(fontSize: 28),
+                    ),
+                    TextSpan(
+                      text: '😘',
+                      style: TextStyle(fontSize: 50),
+                    ),
+                    TextSpan(
+                      text: '😍',
+                      style: TextStyle(fontSize: 28),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

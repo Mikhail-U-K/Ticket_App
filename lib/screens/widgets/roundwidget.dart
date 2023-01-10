@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class RoundWidget extends StatelessWidget {
-  const RoundWidget({super.key});
+  const RoundWidget({super.key, this.isColor});
+  final bool? isColor;
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class RoundWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
           width: 2.5,
-          color: Colors.white,
+          color: isColor == null ? Colors.white : const Color(0xFF8ACCF7),
         ),
       ),
     );

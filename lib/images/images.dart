@@ -6,4 +6,5 @@ class ImagePng {
   static const String hotelTwo = 'assets/two.png';
   static const String hotelThree = 'assets/three.png';
   static const String planeSeats = 'assets/sit.jpg';
+  static const String visa = 'assets/visa.png';
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_application/app_hotel_list.dart';
-import 'package:ticket_application/images/images.dart';
 import 'package:ticket_application/screens/widgets/hotel_widget.dart';
 import 'package:ticket_application/screens/widgets/ticket.dart';
 import 'package:ticket_application/screens/widgets/utils.dart';
@@ -41,19 +40,7 @@ class Home extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Container(
-                      width: 50,
-                      height: 50,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(10),
-                        ),
-                        image: DecorationImage(
-                          // fit: BoxFit.fitHeight,
-                          image: AssetImage(ImagePng.plane),
-                        ),
-                      ),
-                    ),
+                    const SquaredPlane(width: 50, height: 50),
                   ],
                 ),
                 const SizedBox(
