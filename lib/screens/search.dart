@@ -213,18 +213,7 @@ class TwoRoundContainers extends StatelessWidget {
                 ],
               ),
             ),
-            Positioned(
-              right: -45,
-              top: -40,
-              child: Container(
-                padding: EdgeInsets.all(AppLayOut.getHeight(30, context)),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(width: 18, color: Color(0xFF189999)),
-                  color: Colors.transparent,
-                ),
-              ),
-            ),
+            const QuaterCircleWidget(color: Color(0xFF189999)),
           ],
         ),
         SizedBox(

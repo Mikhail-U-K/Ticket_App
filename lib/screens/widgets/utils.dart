@@ -132,3 +132,105 @@ class SquaredPlane extends StatelessWidget {
     );
   }
 }
+
+class QuaterCircleWidget extends StatelessWidget {
+  const QuaterCircleWidget({super.key, required this.color});
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      right: -45,
+      top: -40,
+      child: Container(
+        padding: EdgeInsets.all(AppLayOut.getHeight(30, context)),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(width: 18, color: color),
+          color: Colors.transparent,
+        ),
+      ),
+    );
+  }
+}
+
+class TicketPart extends StatelessWidget {
+  const TicketPart(
+      {super.key,
+      required this.leftTextUp,
+      required this.leftTextDown,
+      required this.rightTextUp,
+      required this.rightTextDown,
+      this.isImage,
+      this.isColor});
+  final String leftTextUp;
+  final String leftTextDown;
+  final String rightTextUp;
+  final String rightTextDown;
+  final bool? isImage;
+  final bool? isColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: AppLayOut.getWidth(20, context),
+        vertical: AppLayOut.getHeight(20, context),
+      ),
+      margin:
+          isColor == null ? const EdgeInsets.only(left: 10, right: 26.5) : null,
+      color: isColor == null ? Colors.white : null,
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  isImage == null
+                      ? Text(
+                          leftTextUp,
+                          style: Styles.headLineStyle3.copyWith(fontSize: 17),
+                        )
+                      : Row(
+                          children: [
+                            Image.asset(
+                              ImagePng.visa,
+                              scale: 11,
+                            ),
+                            Text(
+                              leftTextUp,
+                              style:
+                                  Styles.headLineStyle3.copyWith(fontSize: 17),
+                            )
+                          ],
+                        ),
+                  SizedBox(height: AppLayOut.getHeight(5, context)),
+                  Text(
+                    leftTextDown,
+                    style: Styles.headLineStyle4,
+                  ),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    rightTextUp,
+                    style: Styles.headLineStyle3.copyWith(fontSize: 17),
+                  ),
+                  SizedBox(height: AppLayOut.getHeight(5, context)),
+                  Text(
+                    rightTextDown,
+                    style: Styles.headLineStyle4,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}

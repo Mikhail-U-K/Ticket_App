@@ -86,6 +86,78 @@ class Profile extends StatelessWidget {
             height: AppLayOut.getHeight(30, context),
           ),
           const RewardWidget(),
+          SizedBox(
+            height: AppLayOut.getHeight(25, context),
+          ),
+          Text(
+            'Accumulated miles',
+            style: Styles.headLineStyle3,
+          ),
+          SizedBox(
+            height: AppLayOut.getHeight(35, context),
+          ),
+          Center(
+            child: Text(
+              '192802',
+              style: Styles.headLineStyle.copyWith(fontSize: 35),
+            ),
+          ),
+          SizedBox(
+            height: AppLayOut.getHeight(20, context),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: AppLayOut.getWidth(20, context),
+              vertical: AppLayOut.getHeight(20, context),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Miles accrued',
+                  style: Styles.headLineStyle4,
+                ),
+                Text(
+                  '23 May 2021',
+                  style: Styles.headLineStyle4,
+                ),
+              ],
+            ),
+          ),
+          const RowOfTiars(isColor: true),
+          const TicketPart(
+            leftTextUp: '23 042',
+            leftTextDown: 'Miles',
+            rightTextUp: 'Airlane CO',
+            rightTextDown: 'Recieved from',
+            isColor: true,
+          ),
+          const RowOfTiars(isColor: true),
+          const TicketPart(
+            leftTextUp: '24',
+            leftTextDown: 'Miles',
+            rightTextUp: "McDonal's",
+            rightTextDown: 'Recieved from',
+            isColor: true,
+          ),
+          const RowOfTiars(isColor: true),
+          const TicketPart(
+            leftTextUp: '52 340',
+            leftTextDown: 'Miles',
+            rightTextUp: 'Exuma',
+            rightTextDown: 'Recieved from',
+            isColor: true,
+          ),
+          Center(
+            child: InkWell(
+              onTap: () {},
+              child: Text(
+                'How to get more miles?',
+                style: Styles.textStyle.copyWith(
+                    color: Styles.primaryColor, fontWeight: FontWeight.w500),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -97,24 +169,49 @@ class RewardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // height: 100,
-      padding: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: Color(0xFF526799),
-      ),
-      child: Row(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return Stack(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Color(0xFF526799),
+          ),
+          child: Row(
             children: [
-              Text("You've got a new reward", style: Styles.headLineStyle2.copyWith(color: Colors.white),),
-              Text("You have 150 flights in a year", style: Styles.headLineStyle4.copyWith(color: Colors.white),),
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                ),
+                child: const Icon(
+                  Icons.lightbulb_outline,
+                  color: Color(0xFF526799),
+                ),
+              ),
+              SizedBox(
+                width: AppLayOut.getWidth(10, context),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "You've got a new reward",
+                    style: Styles.headLineStyle2
+                        .copyWith(color: Colors.white, fontSize: 20),
+                  ),
+                  Text(
+                    "You have 150 flights in a year",
+                    style: Styles.headLineStyle4.copyWith(color: Colors.white),
+                  ),
+                ],
+              ),
             ],
           ),
-        ],
-      ),
+        ),
+        QuaterCircleWidget(color: Colors.blue.shade800),
+      ],
     );
   }
 }
